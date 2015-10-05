@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\Marketing-Flurry Update\Flurry Update Job.kjb"

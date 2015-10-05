@@ -1,0 +1,1 @@
+"F:\data-integration\"Pan.bat /file:"Y:\2 - BI\13- Kettle Transformations\Salesforce Updates\Campaign Update in Salesforce.ktr" /level:Basic >F:\batchfiles\Logs\Facebook.log

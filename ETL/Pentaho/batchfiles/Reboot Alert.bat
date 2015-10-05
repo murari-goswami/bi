@@ -1,0 +1,1 @@
+"C:\Email alert"\sendEmail.exe -f bireports@outfittery.de -t hemanth.vulkundkar@outfittery.de -u 10.0.0.50 rebooted -m Server 10.0.0.50 has rebooted!!! Please inform network administrators. -s smtp.gmail.com:587 -xu bireports@outfittery.de -xp <password> -o tls=yes

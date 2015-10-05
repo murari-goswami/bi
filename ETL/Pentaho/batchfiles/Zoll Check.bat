@@ -1,0 +1,1 @@
+"F:\data-integration\"Pan.bat /file:"F:\Kettle Transformations\ZollCheck Export\Zoll Kunden CSV.ktr" /level:Basic

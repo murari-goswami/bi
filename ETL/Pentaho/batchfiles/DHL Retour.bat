@@ -1,0 +1,1 @@
+"F:\data-integration\"Pan.bat /file:"F:\Kettle Transformations\DHL Code Retour-SF Update\DHl Code Retour-SF Update.ktr" /level:Basic >F:\batchfiles\Logs\DHL_Retour.log

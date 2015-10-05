@@ -1,0 +1,1 @@
+"C:\Email alert"\sendEmail.exe -f bireports@outfittery.de -t michael.anspach@outfittery.de -cc lillian.greve@outfittery.de -u Inventory Snapshot Export -m Please find the attachment -s smtp.gmail.com:587 -xu bireports@outfittery.de -xp <password> -o tls=yes -a "X:/11 - BI/2 - SUPPORT/Iventory Snapshot/Email/Inventory Snapshot.csv"

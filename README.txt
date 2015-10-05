@@ -1,0 +1,1 @@
+This repository is used to store a DWH-related scripts (tables DDL, views, procedures, ETL jobs etc.) and reports.

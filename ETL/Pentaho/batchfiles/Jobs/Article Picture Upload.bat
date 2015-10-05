@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\Article Picture\Article Picture Upload.kjb"

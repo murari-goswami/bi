@@ -1,0 +1,1 @@
+"F:\data-integration\"Pan.bat /file:"F:\Kettle Transformations\TV Spot Exports\2. Update TV Spots in DWH.ktr" /level:Basic >F:\batchfiles\Logs\TVSpot.log

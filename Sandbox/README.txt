@@ -1,0 +1,1 @@
+A folder for temporary scripts and reports for BAU (Business as Usual) Jira tasks. This folder will contain a detail information on the task, assocaited scripts and report details form multiple technology to deliver the report to the user on demand. 

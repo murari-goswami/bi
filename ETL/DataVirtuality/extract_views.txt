@@ -1,0 +1,46 @@
+Remove first line
+
+Change to UNIX line endings
+
+^([\w,\,]+)\t(201.+?)\t("[0-9]+")\t(true)\t(201.+?)\t(.+?)\t\t(\")?(.+)
+-- Name: \6\n-- Created: \2\n-- Updated: \5\n\n\8
+
+(\")?\t(READY|FAILED)
+\n\n
+
+""
+"
+
+awk '/(^-- Name: )(\S*?)$/{viewname=$3;} { print $0 > viewname".sql"}' ./dv_views.txt
+
+mkdir affilinet_adv
+mkdir am
+mkdir bi
+mkdir datamart
+mkdir datavirtualitytest
+mkdir desk_com_connector_example
+mkdir forecast
+mkdir ga
+mkdir meta
+mkdir ml
+mkdir ob
+mkdir raw
+mkdir sandbox
+mkdir tableau
+mkdir views
+
+mv ./affilinet_adv.* ./affilinet_adv
+mv ./am.* ./am
+mv ./bi.* ./bi
+mv ./datamart.* ./datamart
+mv ./datavirtualitytest.* ./datavirtualitytest
+mv ./desk_com_connector_example.* ./desk_com_connector_example
+mv ./forecast.* ./forecast
+mv ./ga.* ./ga
+mv ./meta.* ./meta
+mv ./ml.* ./ml
+mv ./ob.* ./ob
+mv ./raw.* ./raw
+mv ./sandbox.* ./sandbox
+mv ./tableau.* ./tableau
+mv ./views.* ./views

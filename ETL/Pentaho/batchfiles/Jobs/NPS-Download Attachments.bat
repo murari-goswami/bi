@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\NPS Score-DWH\1.Export CSV in Deathstar.kjb"

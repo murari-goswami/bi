@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9100.15.0828.1711                                -->
+<workbook source-platform='win' version='9.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Custom_SQL_Query (datavirtuality)' inline='true' name='genericodbc.42277.717578831020' version='9.1'>
+      <connection class='genericodbc' dbname='datavirtuality' odbc-connect-string-extras='SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=10000;Socket=4096;UnknownSizes=0;MaxVarcharSize=8000;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=0;UseDeclareFetch=1;TextAsLongVarchar=1;UseTransactionOnDeclareFetch=0;bracketsReplacements=0;minMemBlockSize=1000000;predictMemCellCount=10;blockCountForGcStart=100;maxFields=2048;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=1;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;LFConversion=0;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=1;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0' odbc-dbms-name='DataVirtuality' odbc-driver='DataVirtuality Unicode(x64)' odbc-dsn='DataVirtuality64' odbc-suppress-connection-pooling='' odbc-use-connection-pooling='' port='35432' schema='' server='10.0.0.54' username='admin'>
+        <relation name='Custom_SQL_Query' type='text'>select date_created,&#13;&#10;&#9;   case when used_invoice_number is not null then &apos;Invoiced&apos;&#13;&#10;&#9;   &#9;&#9;else &apos;Not-Invoiced&apos;&#13;&#10;&#9;   end as invoice_state,&#13;&#10;&#9;   count(distinct(order_id)) as Volume&#9;     &#13;&#10;from &#13;&#10;(&#13;&#10;&#9;select a.date_created,&#13;&#10;           a.order_id,&#13;&#10;           b.used_invoice_number&#13;&#10;    from (&#13;&#10;&#9;&#9;select&#13;&#10;&#9;&#9;&#9;cast(date_created as date) as date_created, &#13;&#10;&#9;&#9;&#9;order_id&#13;&#10;&#9;&#9;from &quot;raw.customer_order&quot; &#13;&#10;&#9;&#9;where cast(date_created as date)  &gt;&gt;= &apos;2015-01-01&apos;&#13;&#10;&#9;&#9;&#9;and order_type in (&apos;Repeat Order Follow-on&apos;, &apos;First Order Follow-on&apos;)) as a&#9;&#13;&#10;&#9;left join&#13;&#10;&#9;( &#13;&#10;&#9;&#9;select orderid,used_invoice_number&#13;&#10;&#9;&#9;from &quot;postgres.doc_data_manifest_shipping&quot; &#13;&#10;&#9;&#9;where cast(date_created as date)  &gt;&gt;= &apos;2015-01-01&apos;&#13;&#10;&#9;) as b&#13;&#10;&#9;on  a.order_id = b.orderid) tab&#13;&#10;&#9;group by 1,2</relation>
+        <connection-customization class='genericodbc' enabled='false' version='9.1'>
+          <vendor name='DataVirtuality' />
+          <driver name='DataVirtuality Unicode(x64)' />
+          <customizations>
+            <customization name='CAP_CREATE_TEMP_TABLES' value='no' />
+            <customization name='CAP_ISOLATION_LEVEL_READ_COMMITTED' value='no' />
+            <customization name='CAP_ISOLATION_LEVEL_READ_UNCOMMITTED' value='no' />
+            <customization name='CAP_ISOLATION_LEVEL_REPEATABLE_READS' value='no' />
+            <customization name='CAP_ISOLATION_LEVEL_SERIALIZABLE' value='no' />
+            <customization name='CAP_ODBC_BIND_DETECT_ALIAS_CASE_FOLDING' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_DATETIME_AS_CHAR' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_DATE_AS_CHAR' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_MAX_STRING_BUFFERS' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_MEDIUM_STRING_BUFFERS' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_SIGNED' value='no' />
+            <customization name='CAP_ODBC_BIND_FORCE_SMALL_STRING_BUFFERS' value='no' />
+            <customization name='CAP_ODBC_BIND_SUPPRESS_INT64' value='no' />
+            <customization name='CAP_ODBC_BIND_SUPPRESS_PREFERRED_TYPES' value='no' />
+            <customization name='CAP_ODBC_BIND_SUPPRESS_WIDE_CHAR' value='no' />
+            <customization name='CAP_ODBC_CURSOR_DYNAMIC' value='no' />
+            <customization name='CAP_ODBC_CURSOR_FORWARD_ONLY' value='no' />
+            <customization name='CAP_ODBC_CURSOR_KEYSET_DRIVEN' value='no' />
+            <customization name='CAP_ODBC_CURSOR_STATIC' value='no' />
+            <customization name='CAP_ODBC_ERROR_IGNORE_FALSE_ALARM' value='no' />
+            <customization name='CAP_ODBC_FETCH_BUFFERS_RESIZABLE' value='no' />
+            <customization name='CAP_ODBC_FETCH_BUFFERS_SIZE_MASSIVE' value='no' />
+            <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
+            <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_EXECUTED_QUERY' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_PREPARED_QUERY' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+            <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='no' />
+            <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
+            <customization name='CAP_ODBC_TRIM_VARCHAR_PADDING' value='no' />
+            <customization name='CAP_ODBC_UNBIND_AUTO' value='no' />
+            <customization name='CAP_ODBC_UNBIND_BATCH' value='no' />
+            <customization name='CAP_ODBC_UNBIND_EACH' value='no' />
+            <customization name='CAP_QUERY_BOOLEXPR_TO_INTEXPR' value='yes' />
+            <customization name='CAP_QUERY_FROM_REQUIRES_ALIAS' value='no' />
+            <customization name='CAP_QUERY_GROUP_BY_ALIAS' value='no' />
+            <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='yes' />
+            <customization name='CAP_QUERY_HAVING_REQUIRES_GROUP_BY' value='no' />
+            <customization name='CAP_QUERY_HAVING_UNSUPPORTED' value='no' />
+            <customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='no' />
+            <customization name='CAP_QUERY_JOIN_REQUIRES_SCOPE' value='no' />
+            <customization name='CAP_QUERY_NULL_REQUIRES_CAST' value='no' />
+            <customization name='CAP_QUERY_SELECT_ALIASES_SORTED' value='yes' />
+            <customization name='CAP_QUERY_SORT_BY_DEGREE' value='yes' />
+            <customization name='CAP_QUERY_SUBQUERIES' value='yes' />
+            <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+            <customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='no' />
+            <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes' />
+            <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
+            <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
+            <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
+            <customization name='CAP_QUERY_TOP_N' value='yes' />
+            <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+            <customization name='CAP_SELECT_INTO' value='no' />
+            <customization name='CAP_SELECT_TOP_INTO' value='yes' />
+            <customization name='CAP_SET_ISOLATION_LEVEL_VIA_ODBC_API' value='no' />
+            <customization name='CAP_SET_ISOLATION_LEVEL_VIA_SQL' value='no' />
+            <customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='no' />
+            <customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='no' />
+            <customization name='SQL_AGGREGATE_FUNCTIONS' value='64' />
+            <customization name='SQL_CATALOG_NAME_SEPARATOR' value='.' />
+            <customization name='SQL_CATALOG_TERM' value='catalog' />
+            <customization name='SQL_CATALOG_USAGE' value='1' />
+            <customization name='SQL_COLUMN_ALIAS' value='Y' />
+            <customization name='SQL_CONVERT_BIGINT' value='0' />
+            <customization name='SQL_CONVERT_BINARY' value='0' />
+            <customization name='SQL_CONVERT_BIT' value='4104' />
+            <customization name='SQL_CONVERT_CHAR' value='0' />
+            <customization name='SQL_CONVERT_DATE' value='0' />
+            <customization name='SQL_CONVERT_DECIMAL' value='0' />
+            <customization name='SQL_CONVERT_DOUBLE' value='0' />
+            <customization name='SQL_CONVERT_FLOAT' value='0' />
+            <customization name='SQL_CONVERT_FUNCTIONS' value='1' />
+            <customization name='SQL_CONVERT_INTEGER' value='4104' />
+            <customization name='SQL_CONVERT_LONGVARBINARY' value='0' />
+            <customization name='SQL_CONVERT_NUMERIC' value='0' />
+            <customization name='SQL_CONVERT_REAL' value='0' />
+            <customization name='SQL_CONVERT_SMALLINT' value='4104' />
+            <customization name='SQL_CONVERT_TIME' value='0' />
+            <customization name='SQL_CONVERT_TIMESTAMP' value='0' />
+            <customization name='SQL_CONVERT_TINYINT' value='4104' />
+            <customization name='SQL_CONVERT_VARBINARY' value='0' />
+            <customization name='SQL_CONVERT_VARCHAR' value='4104' />
+            <customization name='SQL_DBMS_NAME' value='DataVirtuality' />
+            <customization name='SQL_DBMS_VER' value='8.1.4' />
+            <customization name='SQL_DRIVER_ODBC_VER' value='03.51' />
+            <customization name='SQL_DRIVER_VER' value='1.1.24.1' />
+            <customization name='SQL_IDENTIFIER_QUOTE_CHAR' value='&quot;' />
+            <customization name='SQL_MAX_IDENTIFIER_LEN' value='64' />
+            <customization name='SQL_NUMERIC_FUNCTIONS' value='0' />
+            <customization name='SQL_ODBC_INTERFACE_CONFORMANCE' value='1' />
+            <customization name='SQL_ODBC_VER' value='03.80.0000' />
+            <customization name='SQL_OJ_CAPABILITIES' value='127' />
+            <customization name='SQL_QUOTED_IDENTIFIER_CASE' value='3' />
+            <customization name='SQL_SCHEMA_TERM' value='schema' />
+            <customization name='SQL_SCHEMA_USAGE' value='29' />
+            <customization name='SQL_SPECIAL_CHARACTERS' value='_' />
+            <customization name='SQL_SQL92_DATETIME_FUNCTIONS' value='7' />
+            <customization name='SQL_SQL92_NUMERIC_VALUE_FUNCTIONS' value='63' />
+            <customization name='SQL_SQL92_PREDICATES' value='16007' />
+            <customization name='SQL_SQL92_RELATIONAL_JOIN_OPERATORS' value='1022' />
+            <customization name='SQL_SQL92_STRING_FUNCTIONS' value='255' />
+            <customization name='SQL_SQL92_VALUE_EXPRESSIONS' value='15' />
+            <customization name='SQL_SQL_CONFORMANCE' value='1' />
+            <customization name='SQL_STRING_FUNCTIONS' value='7289' />
+            <customization name='SQL_SYSTEM_FUNCTIONS' value='0' />
+            <customization name='SQL_TABLE_TERM' value='table' />
+            <customization name='SQL_TIMEDATE_ADD_INTERVALS' value='511' />
+            <customization name='SQL_TIMEDATE_DIFF_INTERVALS' value='511' />
+            <customization name='SQL_TIMEDATE_FUNCTIONS' value='2097151' />
+            <customization name='__23' value='2' />
+            <customization name='__46' value='2' />
+          </customizations>
+        </connection-customization>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>date_created</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date_created]</local-name>
+            <parent-name>[Custom_SQL_Query]</parent-name>
+            <remote-alias>date_created</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>invoice_state</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[invoice_state]</local-name>
+            <parent-name>[Custom_SQL_Query]</parent-name>
+            <remote-alias>invoice_state</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Volume</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Volume]</local-name>
+            <parent-name>[Custom_SQL_Query]</parent-name>
+            <remote-alias>Volume</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Week_Of' datatype='datetime' name='[Calculation_234468658847322112]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATETRUNC(&apos;week&apos;,[date_created])' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[invoice_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Germany&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Custom_SQL_Query (datavirtuality)' name='genericodbc.42277.717578831020' />
+          </datasources>
+          <datasource-dependencies datasource='genericodbc.42277.717578831020'>
+            <column datatype='integer' name='[Volume]' role='measure' type='quantitative' />
+            <column datatype='date' name='[date_created]' role='dimension' type='ordinal' />
+            <column-instance column='[date_created]' derivation='Day' name='[dy:date_created:ok]' pivot='key' type='ordinal' />
+            <column datatype='string' name='[invoice_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[date_created]' derivation='Month' name='[mn:date_created:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[invoice_state]' derivation='None' name='[none:invoice_state:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Volume]' derivation='Sum' name='[sum:Volume:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date_created]' derivation='Year' name='[yr:date_created:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[genericodbc.42277.717578831020].[none:invoice_state:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[genericodbc.42277.717578831020].[sum:Volume:qk]</rows>
+        <cols>([genericodbc.42277.717578831020].[yr:date_created:ok] / ([genericodbc.42277.717578831020].[mn:date_created:ok] / [genericodbc.42277.717578831020].[dy:date_created:ok]))</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[genericodbc.42277.717578831020].[none:invoice_state:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[genericodbc.42277.717578831020].[mn:date_created:ok]</field>
+          <field>[genericodbc.42277.717578831020].[none:invoice_state:nk]</field>
+          <field>[genericodbc.42277.717578831020].[wk:Calculation_234468658847322112:ok]</field>
+          <field>[genericodbc.42277.717578831020].[yr:Calculation_234468658847322112:ok]</field>
+          <field>[genericodbc.42277.717578831020].[yr:date_created:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      8v8BWQVExPGCwIQAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

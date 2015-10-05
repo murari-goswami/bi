@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\Windows Scheduler Jobs\Arvato Exports\3. Arvato Amount-SF Update.kjb"

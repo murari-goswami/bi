@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\Windows Scheduler Jobs\Inventory Tool CSV Exports.kjb"

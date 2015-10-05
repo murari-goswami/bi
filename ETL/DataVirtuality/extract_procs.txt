@@ -1,0 +1,24 @@
+Remove first line
+
+Change to UNIX line endings
+
+^([\w,\,]+)\t(201.+?)\t(.*)\t(.+?)\t(\")?(.+)
+-- Name: \4\n-- Created: \2\n\n\6
+
+(\")?\t(READY|FAILED)
+\n\n
+
+""
+"
+
+awk '/(^-- Name: )(\S*?)$/{procname=$3;} { print $0 > procname".sql"}' ./dv_procs.txt
+
+mkdir affilinet_adv
+mkdir desk_com_connector
+mkdir raw
+mkdir views
+
+mv ./affilinet_adv.* ./affilinet_adv
+mv ./desk_com_connector.* ./desk_com_connector
+mv ./raw.* ./raw
+mv ./views.* ./views

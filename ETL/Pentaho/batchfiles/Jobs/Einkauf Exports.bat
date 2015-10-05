@@ -1,0 +1,1 @@
+"F:\data-integration\"kitchen.bat /file:"F:\Kettle Transformations\Einkauf Export\Einkauf Exports.kjb"

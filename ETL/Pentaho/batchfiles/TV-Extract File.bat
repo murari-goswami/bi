@@ -1,0 +1,1 @@
+"F:\data-integration\"Pan.bat /file:"F:\Kettle Transformations\TV Spot Exports\1. Extract TV Spots from Json.ktr" /level:Basic
